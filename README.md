@@ -46,7 +46,7 @@ Forces acting on the gear mesh and transmitted to the bearings (calculated based
 
 ## Repository Structure
 
-The design logic is verified through the following calculation sheets:
+The design logic is verified through the following calculation sheets (in the form of tables), found in the excel sheet in *./Project files/calcul reductor rezolvat.xls* as follows:
 
 * **`tema de proiectare.csv`** - Initial constraints ($P=2kW, n=750rpm$).
 * **`calcul geometric angrenaj.csv`** - Sizing of $z_1, z_2$ and center distance $a=180mm$.

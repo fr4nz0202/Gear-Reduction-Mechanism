@@ -1,35 +1,58 @@
-# Single-Stage (Fixed ratio) Gear Reducer
+# Single-Stage Cylindrical Gear Reducer (Helical)
 
-> Project Status: Provisional / Work In Progress
-> This repository is currently being populated. Full calculation sheets and final manufacturing drawings will be added soon.
+> **Status:** Completed Engineering Design
+> **Type:** Mechanical Transmission (Helical Gears / Dinți înclinați)
 
 ## Project Overview
-This project involves the design and engineering analysis of a single-stage gear reducer. The mechanism is designed to transmit power from an input shaft to an output shaft with a fixed reduction ratio, utilizing a single pair of meshing gears (pinion and driven gear).
+This repository contains the complete engineering design and analysis of a **single-stage cylindrical gear reducer** utilizing helical gears.
 
-The design focuses on engineering a gear reducer based on a number of input values/factors, analyzing optimizing gear geometry for durability, efficiency, and compact size.
+The mechanism is designed to transmit power from an electric motor to a machine load with a fixed reduction ratio of **6.3**, ensuring smooth operation and higher load capacity compared to spur gears due to the $20^\circ$ helix angle.
 
-## Technical Specifications (Provisional)
-The initial design parameters are based on the following input data:
+## Technical Specifications
 
-| Parameter | Value | Description |
-| :--- | :--- | :--- |
-| Input Power (P1) | 3 kW | Power at the input shaft |
-| Input Speed (n1) | 1500 rpm | Rotational speed of the input shaft |
-| Transmission Ratio (i) | 2:1 | Reduction ratio |
-| Output Speed (n2) | 750 rpm | Target rotational speed of the output shaft |
-| Working Hours (Lh) | 5000 hours | Required design service life |
-| Load Type | Constant | Operating condition |
+### Input Parameters
+The design is driven by the following requirements:
 
-## Mechanical Architecture
-The gearbox utilizes a single-stage configuration:
+| Parameter | Symbol | Value | Unit |
+| :--- | :---: | :---: | :---: |
+| **Required Power** | $P_{load}$ | 2.0 | kW |
+| **Input Speed** | $n_1$ | 750 | rpm |
+| **Transmission Ratio** | $i$ | 6.3 | - |
+| **Helix Angle** | $\beta$ | 20 | deg |
 
-1.  Input Shaft (Pinion): High-speed shaft connected to the motor, carrying the smaller driving gear.
-2.  Output Shaft (Driven Gear): Low-speed shaft delivering the final torque, carrying the larger driven gear.
-3.  Housing: Rigid casing designed to support bearings, maintain oil bath lubrication, and protect internal components.
+### Gear Geometry (Calculated)
+Final dimensions for the gear set (Pinion & Driven Wheel):
 
-## Design Drawings (Preliminary)
+| Parameter | Symbol | Value | Unit |
+| :--- | :---: | :---: | :---: |
+| **Center Distance** | $a$ | 180 | mm |
+| **Module (Normal)** | $m_n$ | 2.5 | mm |
+| **Number of Teeth** | $z_1 / z_2$ | 18 / 115 | - |
+| **Gear Width** | $b$ | 36 | mm |
+| **Pressure Angle** | $\alpha_n$ | 20 | deg |
 
-Below are the preliminary engineering drawings for the gear reducer assembly.
+## Mechanical Analysis
+
+### 1. Force Analysis
+Forces acting on the gear mesh and transmitted to the bearings (calculated based on Torque $T_1 \approx 29.4$ Nm):
+* **Tangential Force ($F_t$):** ~1209 N
+* **Radial Force ($F_r$):** ~561 N
+* **Axial Force ($F_a$):** ~440 N *(Due to $\beta=20^\circ$)*
+
+### 2. Shaft & Bearing Design
+* **Shaft Material:** OLC 45 (Yield Strength $\sigma_c = 360$ MPa).
+* **Bearings:** Selected to withstand the combined Radial ($F_r$) and Axial ($F_a$) loads.
+* **Lubrication:** Oil bath splash lubrication.
+
+## Repository Structure
+
+The design logic is verified through the following calculation sheets:
+
+* **`tema de proiectare.csv`** - Initial constraints ($P=2kW, n=750rpm$).
+* **`calcul geometric angrenaj.csv`** - Sizing of $z_1, z_2$ and center distance $a=180mm$.
+* **`calcul arbori.csv`** - Shaft diameter sizing ($d_{prel} \approx 25-30mm$) and force calculations.
+* **`durabilitatea rulmentilor.csv`** - Bearing fatigue life analysis ($L_{10}$).
+
 
 ### Assembly View
 ![2D Assembly Drawing](images/2D3D_Drawing.jpg)
@@ -37,14 +60,6 @@ Below are the preliminary engineering drawings for the gear reducer assembly.
 
 ### Input Shaft Drawing
 ![3D Model View](images/Shaft.jpg)
-
-
-## Planned Updates
-The following documentation will be added to complete this repository:
-- Full Excel calculation sheet (Gear geometric sizing, module selection, force analysis).
-- Shaft fatigue analysis.
-- Bearing selection and life calculation.
-- Finalized 2D manufacturing drawings for individual components (shafts, gears, housing).
 
 ---
 Project developed for the Mechanical Engineering curriculum.

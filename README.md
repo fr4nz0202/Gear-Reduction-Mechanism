@@ -37,7 +37,7 @@ Below are the preliminary engineering drawings for the gear reducer assembly.
 
 ### Input Shaft Drawing
 ![3D Model View](images/Shaft.jpg)
-*Isometric view of the gearbox housing and external components.*
+
 
 ## Planned Updates
 The following documentation will be added to complete this repository:
